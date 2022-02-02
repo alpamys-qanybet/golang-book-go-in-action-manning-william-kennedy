@@ -37,3 +37,7 @@ func TestDownload(t *testing.T) {
     }
   }
 }
+
+// go test
+// -v
+// -cover

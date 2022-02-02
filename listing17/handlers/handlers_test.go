@@ -6,12 +6,14 @@ import (
   "net/http/httptest"
   "testing"
 
-  "books/goinaction/listing17/handlers"
+  "books/go-in-action/listing17/handlers"
 )
 
 const checkMark = "\u2713"
 const ballotX = "\u2717"
 
+// init function is declared to initialize the routes.
+// If the routes aren’t initialized before the unit tests are run, then the tests will fail with an http.StatusNotFound error
 func init() {
   handlers.Routes()
 }
