@@ -25,8 +25,8 @@ func TestDownload(t *testing.T) {
       if err != nil {
         t.Fatal("\t\tShould be able to make the Get call.", ballotX, err)
       }
-
       t.Log("\t\tShould be able to make the Get call.", checkMark)
+
       defer resp.Body.Close()
 
       if resp.StatusCode == statusCode {

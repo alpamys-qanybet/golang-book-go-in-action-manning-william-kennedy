@@ -4,7 +4,7 @@ import (
   "log"
   "net/http"
 
-  "books/go_in_action/listing17/handlers"
+  "books/goinaction/listing17/handlers"
 )
 
 func main() {

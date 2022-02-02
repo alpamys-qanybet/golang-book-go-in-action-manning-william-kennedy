@@ -1,3 +1,3 @@
-module books/go_in_action
+module books/goinaction
 
 go 1.17
