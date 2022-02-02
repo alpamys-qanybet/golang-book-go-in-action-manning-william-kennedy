@@ -1,17 +1,19 @@
-package handlers
+package handlers_test
 
 import (
   "encoding/json"
   "net/http"
   "net/http/httptest"
   "testing"
+
+  "books/goinaction/listing17/handlers"
 )
 
 const checkMark = "\u2713"
 const ballotX = "\u2717"
 
 func init() {
-  Routes()
+  handlers.Routes()
 }
 
 func TestSendJson(t *testing.T) {
