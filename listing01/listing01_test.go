@@ -10,9 +10,9 @@ const checkMark = "\u2713"
 const ballotX = "\u2717"
 
 func TestDownload(t *testing.T) {
-  // url := "http://www.goingo.net/feeds/posts/default?alt=rss"
-  url := "https://habr.com/ru/all"
-  statusCode := 200
+  // url := "http://www.goinggo.net/feeds/posts/default?alt=rss"
+  url := "https://habraa.com/ru/all"
+  statusCode := http.StatusOK
 
   // fmt.Println(checkMark, ballotX)
 
@@ -32,7 +32,7 @@ func TestDownload(t *testing.T) {
       if resp.StatusCode == statusCode {
         t.Logf("\t\tShould receive a \"%d\" status. %v", statusCode, checkMark)
       } else {
-        t.Errorf("\t\tShould receive a \"%d\" status. %v", statusCode, ballotX)
+        t.Errorf("\t\tShould receive a \"%d\" status. %v %v", statusCode, ballotX, resp.StatusCode)
       }
     }
   }
