@@ -45,6 +45,7 @@ For numeric types, that value is 0;
 for strings it’s an empty string;
 for Booleans it’s false;
 and for pointers, the zero value is nil.
+In the case of a struct, the zero value would apply to all the different fields in the struct.
 
 - a,b,err := myFunc()
 If an error occurs, never trust the other values being returned from the function.
@@ -85,6 +86,20 @@ When multiple methods are declared within an interface type, the name of the int
 
 
 3. Packaging and tooling
+- Packages are the basic unit of code organization in Go.
+- Your GOPATH determines on disk where Go source code is saved, compiled, and
+installed.
+- You can set your GOPATH for each different project, keeping all of your source
+and dependencies separate.
+- The go tool is your best friend when working from the command line.
+- You can use packages created by other people by using go get to fetch and
+install them in your GOPATH.
+- It’s easy to create packages for others to use if you host them on a public source
+code repository and follow a few simple rules.
+- Go was designed with code sharing as a central driving feature of the language.
+- It’s recommended that you use vendoring to manage dependencies.
+- There are several community-developed tools for dependency management
+such as godep, vendor, and gb.
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -127,16 +142,36 @@ Comments can be started using either two slashes, or using the slash-asterisk st
 
 
 4. Arrays, slices, and maps
+- Arrays are the building blocks for both slices and maps.
+- Slices are the idiomatic way in Go you work with collections of data. Maps are
+the way you work with key/value pairs of data.
+- The built-in function make allows you to create slices and maps with initial
+length and capacity. Slice and map literals can be used as well and support set-
+ting initial values for use.
+- Slices have a capacity restriction, but can be extended using the built-in func-
+tion append.
+- Maps don’t have a capacity or any restriction on growth.
+- The built-in function len can be used to retrieve the length of a slice or map.
+- The built-in function cap only works on slices.
+- Through the use of composition, you can create multidimensional arrays and
+slices. You can also create maps with values that are slices and other maps. A
+slice can’t be used as a map key.
+- Passing a slice or map to a function is cheap and doesn’t make a copy of the
+underlying data structure.
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 Notes:
+- Slices are flexible in terms of growth because they have their own built-in function called append,
+which can grow a slice quickly with efficiency.
 
 =======================================================================================================================================================================================================================================================================================================================================================================
 
 
 5. Go's type system
-
+- struct.
+Struct types are declared by composing a fixed set of unique fields.
+Each field in a struct is declared with a known type, which could be a built-in type or another user-defined type.
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
