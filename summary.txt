@@ -181,7 +181,13 @@ Notes:
 
 
 6. Concurrency
-
+- Concurrency is the independent execution of goroutines.
+- Functions are created as goroutines with the keyword go.
+- Goroutines are executed within the scope of a logical processor that owns a single operating system thread and run queue.
+- A race condition is when two or more goroutines attempt to access the same resource.
+- Atomic functions and mutexes provide a way to protect against race conditions.
+- Channels provide an intrinsic way to safely share data between two goroutines.
+- Unbuffered channels provide a guarantee between an exchange of data. Buffered channels do not.
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -241,6 +247,37 @@ the atomic functions will synchronize the calls and keep all the operations safe
 }
 mutex.Unlock()
 // When the thread is yielded inside mutex.Lock() mutex.Unlock() the scheduler assigns the same goroutine to continue running
+
+-
+// Unbuffered channel of integers.
+unbuffered := make(chan int)
+
+// Buffered channel of strings.
+buffered := make(chan string, 10)
+
+// Send a string through the channel.
+buffered <- "Gopher"
+
+// Receive a string from the channel.
+value := <-buffered
+
+- Unbuffered and buffered channels behave a bit differently.
+
+- An unbuffered channel is a channel with no capacity to hold any value before it’s received.
+Require both a sending and receiving goroutine to be ready at the same instant before any send or receive operation can complete.
+If the two goroutines aren’t ready at the same instant, the channel makes the goroutine that performs its respective send or receive operation first wait.
+
+- A buffered channel is a channel with capacity to hold one or more values before they’re received.
+These types of channels don’t force goroutines to be ready at the same instant to perform sends and receives.
+There are also different conditions for when a send or receive does block.
+A receive will block only if there’s no value in the channel to receive.
+A send will block only if there’s no available buffer to place the value being sent.
+
+- An unbuffered channel provides a guarantee that an exchange between two goroutines is performed at the instant the send and receive take place.
+- A buffered channel has no such guarantee.
+
+- When a channel is closed, goroutines can still perform receives on the channel but can no longer send on the channel.
+
 
 =======================================================================================================================================================================================================================================================================================================================================================================
 
