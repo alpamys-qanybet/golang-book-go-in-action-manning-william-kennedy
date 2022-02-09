@@ -216,6 +216,19 @@ If this happens, the program will terminate before the gorou- tines have a chanc
 The scheduler does this to prevent any single goroutine from holding the logical processor hostage.
 It will stop the currently running goroutine and give another runnable goroutine a chance to run.
 
+- When two or more goroutines have unsynchronized access to a shared resource and attempt to read and write to that resource at the same time,
+you have what’s called a race condition.
+
+- Read and write operations against a shared resource must always be atomic, or in other words, done by only one goroutine at a time.
+
+- Go has a special tool that can detect race conditions in your code.
+    go build -race listing09.go
+    ./listing09
+    WARNING: DATA RACE
+
+- Go provides traditional support to synchronize goroutines by locking access to shared resources.(atomic, mutex(sync))
+
+- Atomic functions provide low-level locking mechanisms for synchronizing access to integers and pointers.
 
 =======================================================================================================================================================================================================================================================================================================================================================================
 
