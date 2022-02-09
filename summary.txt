@@ -230,6 +230,18 @@ you have what’s called a race condition.
 
 - Atomic functions provide low-level locking mechanisms for synchronizing access to integers and pointers.
 
+- StoreInt64, LoadInt64
+If any of the goroutines attempt to call the LoadInt64 function at the same time as the main function calls StoreInt64,
+the atomic functions will synchronize the calls and keep all the operations safe and race condition–free.
+
+- A mutex is used to create a critical section around code that ensures only one goroutine at a time can execute that code section.
+- mutex.Lock()
+{ // The use of the curly brackets is just to make the critical section easier to see; they’re not necessary.
+    // do stuff
+}
+mutex.Unlock()
+// When the thread is yielded inside mutex.Lock() mutex.Unlock() the scheduler assigns the same goroutine to continue running
+
 =======================================================================================================================================================================================================================================================================================================================================================================
 
 
