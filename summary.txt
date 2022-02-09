@@ -293,6 +293,10 @@ Notes:
 - Runner.
 The purpose of the runner package is to show how channels can be used to monitor the amount of time a program is running and terminate the program if it runs too long.
 
+- Pooling.
+The purpose of the pool package is to show how you can use a buffered channel to pool a set of resources that can be shared and individually used by any number of goroutines.
+
+
 =======================================================================================================================================================================================================================================================================================================================================================================
 
 

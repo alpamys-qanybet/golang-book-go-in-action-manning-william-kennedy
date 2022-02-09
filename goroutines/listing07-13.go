@@ -5,7 +5,7 @@ import (
     "time"
     "os"
 
-    "books/go-in-action/runner"
+    "books/go-in-action/patterns/runner"
 )
 
 // const timeout = 3 * time.Second
