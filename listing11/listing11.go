@@ -30,3 +30,10 @@ func main() {
 	lisa.changeEmail("lisa@newdomain.com")
 	lisa.notify()
 }
+
+/*
+Sending user email to Bill<bill@gmail.com>
+Sending user email to Lisa<lisa@gmail.com>
+Sending user email to Bill<bill@yahoo.com>
+Sending user email to Lisa<lisa@newdomain.com>
+*/
