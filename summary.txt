@@ -34,7 +34,7 @@ The blank identifier allows the compiler to accept the import and call any init 
 
 - Identifiers are either exported or unexported from a package.
 An exported identifier can be directly accessed by code in other packages when the respective package is imported.
-These identifiers start with a capital letter. Unexported identifi- ers start with a lowercase letter and can’t be directly accessed by code in other pack- ages.
+These identifiers start with a capital letter. Unexported identifiers start with a lowercase letter and can’t be directly accessed by code in other packages.
 
 - make(map[string]Matcher)
 If you don’t make the map first and assign it to your variable, you’ll receive errors when you try to use the map variable.
@@ -146,10 +146,9 @@ Comments can be started using either two slashes, or using the slash-asterisk st
 - Slices are the idiomatic way in Go you work with collections of data. Maps are
 the way you work with key/value pairs of data.
 - The built-in function make allows you to create slices and maps with initial
-length and capacity. Slice and map literals can be used as well and support set-
-ting initial values for use.
-- Slices have a capacity restriction, but can be extended using the built-in func-
-tion append.
+length and capacity. Slice and map literals can be used as well and support setting
+initial values for use.
+- Slices have a capacity restriction, but can be extended using the built-in function append.
 - Maps don’t have a capacity or any restriction on growth.
 - The built-in function len can be used to retrieve the length of a slice or map.
 - The built-in function cap only works on slices.
@@ -216,14 +215,14 @@ This will result in goroutines running on different threads.
 
 - Once the two anonymous functions are created as goroutines, the code in main keeps running.
 This means that the main function can return before the goroutines complete their work.
-If this happens, the program will terminate before the gorou- tines have a chance to run.
+If this happens, the program will terminate before the goroutines have a chance to run.
 
 - Based on the internal algorithms of the scheduler, a running goroutine can be stopped and rescheduled to run again before it finishes its work.
 The scheduler does this to prevent any single goroutine from holding the logical processor hostage.
 It will stop the currently running goroutine and give another runnable goroutine a chance to run.
 
-- When two or more goroutines have unsynchronized access to a shared resource and attempt to read and write to that resource at the same time,
-you have what’s called a race condition.
+- When two or more goroutines have unsynchronized access to a shared resource and attempt to read and write to that 
+resource at the same time, you have what’s called a race condition.
 
 - Read and write operations against a shared resource must always be atomic, or in other words, done by only one goroutine at a time.
 
